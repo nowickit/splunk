@@ -1,0 +1,20 @@
+receivers:
+  hostmetrics:
+    scrapers:
+      memory:
+
+processors:
+  memory_limiter:
+    check_interval: 5s
+    limit_mib: 400
+
+exporters:
+  debug:
+  verbosity: normal
+
+service:
+  pipelines:
+    metrics:
+      receivers: [hostmetrics]
+      processors: []
+      exporters: [debug]
