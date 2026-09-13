@@ -1,0 +1,17 @@
+receivers:
+  host_metrics:
+    scrapers:
+      cpu:
+      
+processors:
+
+exporters:
+  debug:
+    verbosity: detailed
+    
+service:
+  pipelines:
+    metrics:
+      receivers: [host_metrics]
+      processors:
+      exporters:
